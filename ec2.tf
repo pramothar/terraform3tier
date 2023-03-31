@@ -4,7 +4,7 @@ resource "aws_instance" "demoinstance" {
   instance_type               = "t2.micro"
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.demosg.id}"]
-  subnet_id                   = "${aws_subnet.demoinstance.id}"
+  subnet_id                   = "${aws_subnet.public-subnet-1.id}"
   associate_public_ip_address = true
   user_data                   = "${file("data.sh")}"
 
@@ -19,7 +19,7 @@ resource "aws_instance" "demoinstance1" {
   instance_type               = "t2.micro"
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.demosg.id}"]
-  subnet_id                   = "${aws_subnet.demoinstance.id}"
+  subnet_id                   = "${aws_subnet.public-subnet-2.id}"
   associate_public_ip_address = true
   user_data                   = "${file("data.sh")}"
 
